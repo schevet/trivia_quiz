@@ -2,7 +2,7 @@
 // ==========================================================================
 // The object questions for our quiz game.
 
-function questionGame(){
+function quiz(){
 var questions = {
     q1: ["The sky is blue.", "t"],
     q2: ["There are 365 days in a year.", "t"],
