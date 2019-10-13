@@ -3,26 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Question Game</title>
+    <title>Trivia Quiz!</title>
 </head>
 
 <body>
     <script src="java.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
     <h1>Quiz Game!</h1>
 
     <div id="quiz"></div>
     <button id="start">Start Quiz</button>
+    <div id="minute"></div>
+    <div id ="second"></div>
     <div id="results"></div>
 
 
     <p id="score"></p>
     <p id="question"></p>
 
-<script>
-    $("#start").click(quiz)   
-</script>
+    <script>
+        $("#start").click(quiz)
+        $("start").innerHTML = minutes + "m " + seconds + "s ";
+        $("minute").innerHTML = minutes;
+        $("second").innerHTML = seconds;
+    </script>
 
 
 

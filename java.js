@@ -1,84 +1,61 @@
-// VARIABLES
-// ==========================================================================
-// The object questions for our quiz game.
+// Borrowed the java form "Question Game" that we did in class to get started
 
-function quiz(){
-var questions = {
-    q1: ["The sky is blue.", "t"],
-    q2: ["There are 365 days in a year.", "t"],
-    q3: ["There are 42 ounces in a pound.", "f"],
-    q4: ["The Declaration of Independence was created in 1745.", "f"],
-    q5: ["Bananas are vegetables.", "f"]
-};
-console.log(questions)
-console.log(questions.q1[0])
+// these are the questions. "Q" is the question, "c" are the choices, "a" is the answer
 
-// We start the game with a score of 0.
-var score = 0;
-// Variable to hold the index of current question.
-var questionIndex = 0;
-// Array of questions.
-var questionsArray = [questions.q1, questions.q2, questions.q3, questions.q4, questions.q5];
+var questions = [
+  {
+    q : "Which hip hop artist had the hits 'Rock the House', 'Summertime', and 'Partystarter'?,
+    o : [
+      "Lil Wayne",
+      "Will Smith",
+      "LL Cool J",
+      "Vanilla Ice"
+    ],
+    a : 1
+  },
+  {
+    q : "Who was the first rap artist or group to have an endorsement deal?",
+    o : [
+      "Eminem",
+      "Souja Boy Tell Em",
+      "Run-DMC",
+      "Dr. Dre"
+    ],
+    a : 2
+  },
+  {
+    q : "A Tribe Called Quest has all but which members in their group?",
+    o : [
+      "Busta Rhymes",
+      "Ali Shaheed",
+      "Phife Dawg",
+      "Q-Tip"
+    ],
+    a : 0
+  },
+  {
+    q : "The hit 'Rapper's Delight' was made by which 1970s and 1980s hip hop group?",
+    o : [
+      "NWA",
+      "Ultramagnetic MCs",
+      "Audio Two",
+      "Sugarhill Gang"
+    ],
+    a : 3
+  },
+  {
+    q : "Who sang the song 'Paid in Full'?",
+    o : [
+      "EPMD",
+      "Eric B & Rakim",
+      "NWA",
+      "Ice Cube"
+    ],
+    a : 1
+  }
+];
+   // score
+   
+   var score = 0;
 
-// FUNCTIONS
-// ==============================================================================
-
-// Function to render questions.
-function renderQuestion() {
-    // If there are still more questions, render the next one.
-    if (questionIndex <= (questionsArray.length - 1)) {
-        document.querySelector("#question").innerHTML = questionsArray[questionIndex][0];
-    }
-    // If there aren't, render the end game screen.
-    else {
-        document.querySelector("#question").innerHTML = "Game Over!";
-        document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questionsArray.length;
-    }
-}
-
-// Function that updates the score...
-function updateScore() {
-    document.querySelector("#score").innerHTML = "Score: " + score;
-}
-
-// MAIN PROCESS
-// ==============================================================================
-
-// Calling functions to start the game.
-renderQuestion();
-updateScore();
-
-// When the user presses a key, it will run the following function...
-document.onkeyup = function (event) {
-
-    // If there are no more questions, stop the function.
-    if (questionIndex === questionsArray.length) {
-        return;
-    }
-
-    // Determine which key was pressed, make it lowercase, and set it to the userInput variable.
-    var userInput = String.fromCharCode(event.which).toLowerCase();
-
-    // Only run this code if "t" or "f" were pressed.
-    if (userInput === "t" || userInput === "f") {
-
-        // If they guess the correct answer, increase and update score, alert them they got it right.
-        if (userInput === questionsArray[questionIndex][1]) {
-            alert("Correct!");
-            score++;
-            updateScore();
-        }
-        // If wrong, alert them they are wrong.
-        else {
-            alert("Wrong!");
-        }
-
-        // Increment the questionIndex variable and call the renderQuestion function.
-        questionIndex++;
-        renderQuestion();
-
-    }
-
-};
-
-};
+  
